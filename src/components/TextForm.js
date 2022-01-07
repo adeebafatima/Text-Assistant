@@ -20,6 +20,15 @@ export default function TextForm(props) {
     props.showAlert("Converted to Lowercase", "success");
   };
 
+  const handleCopytoClipboard = () => {
+    navigator.clipboard.writeText(text);
+    props.showAlert("Copied to clipboard", "success");
+  };
+
+  const handleClearText = () => {
+    setText(""); // New "text" state is lower case text
+    props.showAlert("Cleared", "success");
+  };
   return (
     <>
       <div
@@ -43,18 +52,52 @@ export default function TextForm(props) {
           ></textarea>
         </div>
         <button
-          disabled={text.length === 0}
+          disabled={
+            text.length === 0 ||
+            text.split(/\s+/).filter((element) => {
+              return element.length !== 0;
+            }).length === 0
+          }
           className="btn btn-primary mx-3 my-1"
           onClick={handleUpperCaseClick}
         >
           Convert to Uppercase
         </button>
         <button
-          disabled={text.length === 0}
+          disabled={
+            text.length === 0 ||
+            text.split(/\s+/).filter((element) => {
+              return element.length !== 0;
+            }).length === 0
+          }
           className="btn btn-primary mx-3 my 1"
           onClick={handleLowerCaseClick}
         >
           Convert to Lowercase
+        </button>
+        <button
+          disabled={
+            text.length === 0 ||
+            text.split(/\s+/).filter((element) => {
+              return element.length !== 0;
+            }).length === 0
+          }
+          className="btn btn-primary mx-3 my 1"
+          onClick={handleCopytoClipboard}
+        >
+          Copy
+        </button>
+        <button
+          disabled={
+            text.length === 0 ||
+            text.split(/\s+/).filter((element) => {
+              return element.length !== 0;
+            }).length === 0
+          }
+          className="btn btn-danger mx-3 my 1"
+          onClick={handleClearText}
+        >
+          Clear
         </button>
       </div>
 
