@@ -25,6 +25,12 @@ export default function TextForm(props) {
     props.showAlert("Copied to clipboard", "success");
   };
 
+  const handleExtraSpaces = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "));
+    props.showAlert("Extra spaces removed!", "success");
+  };
+
   const handleClearText = () => {
     setText(""); // New "text" state is lower case text
     props.showAlert("Cleared", "success");
@@ -58,7 +64,7 @@ export default function TextForm(props) {
               return element.length !== 0;
             }).length === 0
           }
-          className="btn btn-primary mx-3 my-1"
+          className="btn btn-primary mx-2 my-1"
           onClick={handleUpperCaseClick}
         >
           Convert to Uppercase
@@ -70,7 +76,7 @@ export default function TextForm(props) {
               return element.length !== 0;
             }).length === 0
           }
-          className="btn btn-primary mx-3 my 1"
+          className="btn btn-primary mx-2 my-1"
           onClick={handleLowerCaseClick}
         >
           Convert to Lowercase
@@ -82,7 +88,19 @@ export default function TextForm(props) {
               return element.length !== 0;
             }).length === 0
           }
-          className="btn btn-primary mx-3 my 1"
+          className="btn btn-primary mx-2 my-1"
+          onClick={handleExtraSpaces}
+        >
+          Remove extra spaces
+        </button>
+        <button
+          disabled={
+            text.length === 0 ||
+            text.split(/\s+/).filter((element) => {
+              return element.length !== 0;
+            }).length === 0
+          }
+          className="btn btn-primary mx-2 my-1"
           onClick={handleCopytoClipboard}
         >
           Copy
@@ -94,7 +112,7 @@ export default function TextForm(props) {
               return element.length !== 0;
             }).length === 0
           }
-          className="btn btn-danger mx-3 my 1"
+          className="btn btn-danger mx-2 my-1"
           onClick={handleClearText}
         >
           Clear

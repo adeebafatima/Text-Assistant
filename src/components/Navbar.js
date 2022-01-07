@@ -9,7 +9,7 @@ export default function Navbar(props) {
       >
         {" "}
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+          <a className="navbar-brand" href="#">
             {props.title}
           </a>
           <button
@@ -26,7 +26,7 @@ export default function Navbar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/">
+                <a className="nav-link" aria-current="page" href="#">
                   {props.homeText}
                 </a>
               </li>
@@ -60,10 +60,8 @@ export default function Navbar(props) {
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
   homeText: PropTypes.string,
-  aboutText: PropTypes.string,
 };
 
 Navbar.defaultProps = {
   homeText: "Home",
-  aboutText: "About",
 };
