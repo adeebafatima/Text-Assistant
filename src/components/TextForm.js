@@ -144,5 +144,5 @@ TextForm.propTypes = {
 };
 
 TextForm.defaultProps = {
-  boxHeading: "Word Counter | Character Counter | Manipulate Text",
+  boxHeading: "Enter your text here",
 };
