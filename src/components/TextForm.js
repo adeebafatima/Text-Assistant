@@ -91,7 +91,7 @@ export default function TextForm(props) {
           className="btn btn-primary mx-2 my-1"
           onClick={handleExtraSpaces}
         >
-          Remove extra spaces
+          Remove Extra Spaces
         </button>
         <button
           disabled={
@@ -133,7 +133,9 @@ export default function TextForm(props) {
           minutes read
         </p>
         <h3>Preview</h3>
-        <p>{text.length > 0 ? text : "Nothing to preview"}</p>
+        <p>
+          {text.replace(/\s/g, "").length > 0 ? text : "Nothing to preview!!"}
+        </p>
       </div>
     </>
   );
