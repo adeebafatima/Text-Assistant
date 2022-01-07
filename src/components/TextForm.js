@@ -15,8 +15,8 @@ export default function TextForm(props) {
   };
 
   const handleLowerCaseClick = () => {
-    let lowerCaseText = text.toLowerCase(); // "text"'s current state will be taken and converted to uppercase
-    setText(lowerCaseText); // New "text" state is upper case text
+    let lowerCaseText = text.toLowerCase(); // "text"'s current state will be taken and converted to lowercase
+    setText(lowerCaseText); // New "text" state is lower case text
     props.showAlert("Converted to Lowercase", "success");
   };
 
