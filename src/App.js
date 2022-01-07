@@ -14,12 +14,10 @@ function App() {
       setMode("dark");
       document.body.style.backgroundColor = "#2d2c31";
       showAlert("Dark mode has been enabled", "success");
-      document.title = "Text Assistant - Dark Mode";
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
       showAlert("Light mode has been enabled", "success");
-      document.title = "Text Assistant - Light Mode";
     }
   };
 
@@ -39,7 +37,7 @@ function App() {
       <Alert alert={alert} />
       <div className="container my-3">
         <TextForm
-          boxHeading="Enter the text to analyze"
+          boxHeading="Try Text Assistant - Word Counter, Character Counter, Manipulate Text"
           mode={mode}
           showAlert={showAlert}
         />

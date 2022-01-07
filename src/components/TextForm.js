@@ -32,7 +32,7 @@ export default function TextForm(props) {
   };
 
   const handleClearText = () => {
-    setText(""); // New "text" state is lower case text
+    setText("");
     props.showAlert("Cleared", "success");
   };
   return (
@@ -105,16 +105,7 @@ export default function TextForm(props) {
         >
           Copy
         </button>
-        <button
-          disabled={
-            text.length === 0 ||
-            text.split(/\s+/).filter((element) => {
-              return element.length !== 0;
-            }).length === 0
-          }
-          className="btn btn-danger mx-2 my-1"
-          onClick={handleClearText}
-        >
+        <button className="btn btn-danger mx-2 my-1" onClick={handleClearText}>
           Clear
         </button>
       </div>
@@ -130,8 +121,10 @@ export default function TextForm(props) {
               return element.length !== 0;
             }).length
           }{" "}
-          words and {text.length} characters
+          words and {text.replace(/\s/g, "").length} characters
         </p>
+        <p>{text.length} characters (with spaces)</p>
+
         <p>
           {0.008 *
             text.split(/\s+/).filter((element) => {
@@ -151,5 +144,5 @@ TextForm.propTypes = {
 };
 
 TextForm.defaultProps = {
-  boxHeading: "Enter your text here",
+  boxHeading: "Word Counter | Character Counter | Manipulate Text",
 };
